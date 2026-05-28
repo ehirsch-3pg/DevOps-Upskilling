@@ -77,6 +77,20 @@ aside.sidebar {
   border-left: 2px solid transparent;
   transition: background 0.1s, color 0.1s, border-color 0.1s;
 }
+.nav-icon {
+  display: inline-block;
+  width: 1.3em;
+  text-align: center;
+  margin-right: 0.35rem;
+  font-style: normal;
+}
+img.nav-icon {
+  width: 1.05em;
+  height: 1.05em;
+  vertical-align: -0.18em;
+  object-fit: contain;
+}
+img.nav-icon.wide { width: 1.6em; }
 .sidebar nav a:hover {
   background: var(--bg-elev-2);
   color: var(--fg);
@@ -103,6 +117,17 @@ h2.module-title {
   margin: 0 0 0.25rem;
   color: var(--fg);
 }
+.title-icon {
+  font-style: normal;
+  margin-right: 0.4rem;
+}
+img.title-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: -0.25em;
+  object-fit: contain;
+}
+img.title-icon.wide { width: 2.3rem; }
 .module-tag {
   display: inline-block;
   font-size: 0.75rem;

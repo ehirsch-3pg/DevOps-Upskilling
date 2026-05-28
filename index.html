@@ -17,17 +17,17 @@
       <div class="subtitle">Starter Pack · self-paced</div>
       <nav aria-label="Modules">
         <ol>
-          <li><a href="#intro">Overview</a></li>
-          <li><a href="#m1">M1 · Linux</a></li>
-          <li><a href="#m2">M2 · Git</a></li>
-          <li><a href="#m3">M3 · Programming (FP)</a></li>
-          <li><a href="#m4">M4 · Continuous Integration</a></li>
-          <li><a href="#m5">M5 · Containers</a></li>
-          <li><a href="#m6">M6 · Cloud (AWS + IaC)</a></li>
-          <li><a href="#m7">M7 · Continuous Delivery</a></li>
-          <li><a href="#final">Final · Status Page</a></li>
-          <li><a href="#debugging">Debugging (post-Final)</a></li>
-          <li><a href="#free-tier">AWS Free Tier 2025</a></li>
+          <li><a href="#intro"><span class="nav-icon">🏠</span> Overview</a></li>
+          <li><a href="#m1"><img class="nav-icon" src="https://cdn.simpleicons.org/linux" alt=""> Module 1 · Linux</a></li>
+          <li><a href="#m2"><img class="nav-icon" src="https://cdn.simpleicons.org/git" alt=""> Module 2 · Git</a></li>
+          <li><a href="#m3"><span class="nav-icon">λ</span> Module 3 · Programming (FP)</a></li>
+          <li><a href="#m4"><img class="nav-icon" src="https://cdn.simpleicons.org/githubactions" alt=""> Module 4 · Continuous Integration</a></li>
+          <li><a href="#m5"><img class="nav-icon" src="https://cdn.simpleicons.org/docker" alt=""> Module 5 · Containers</a></li>
+          <li><a href="#m6"><img class="nav-icon wide" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt=""> Module 6 · Cloud (AWS + IaC)</a></li>
+          <li><a href="#m7"><img class="nav-icon" src="https://cdn.simpleicons.org/githubactions" alt=""> Module 7 · Continuous Delivery</a></li>
+          <li><a href="#final"><span class="nav-icon">🏆</span> Final · Status Page</a></li>
+          <li><a href="#debugging"><span class="nav-icon">🐞</span> Final Checkout · debugging</a></li>
+          <li><a href="#free-tier"><img class="nav-icon wide" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt=""> AWS Free Tier 2025</a></li>
         </ol>
       </nav>
     </aside>
@@ -39,10 +39,10 @@
         <p class="toc-meta">All materials are free and public.</p>
       </header>
 
-      <!-- M1 -->
+      <!-- Module 1 -->
       <section class="module" id="m1">
         <span class="module-tag">Module 1</span>
-        <h2 class="module-title">Linux</h2>
+        <h2 class="module-title"><img class="title-icon" src="https://cdn.simpleicons.org/linux" alt=""> Linux</h2>
         <p>Terminal fluency and shell scripting.</p>
         <div class="hours-split"><span><strong>Learning</strong> ~4–7h</span><span><strong>Assignment</strong> ~4–5h</span><span><strong>Total</strong> ~8–12h</span></div>
 
@@ -72,10 +72,10 @@
         </ul>
       </section>
 
-      <!-- M2 -->
+      <!-- Module 2 -->
       <section class="module" id="m2">
         <span class="module-tag">Module 2</span>
-        <h2 class="module-title">Git</h2>
+        <h2 class="module-title"><img class="title-icon" src="https://cdn.simpleicons.org/git" alt=""> Git</h2>
         <p>Fundamentals, history rewriting, hooks, signing.</p>
         <div class="hours-split"><span><strong>Learning</strong> ~3–5h</span><span><strong>Assignment</strong> ~3–5h</span><span><strong>Total</strong> ~6–10h</span></div>
 
@@ -108,10 +108,10 @@
         </ul>
       </section>
 
-      <!-- M3 -->
+      <!-- Module 3 -->
       <section class="module" id="m3">
         <span class="module-tag">Module 3</span>
-        <h2 class="module-title">Programming — Functional Programming &amp; Composition</h2>
+        <h2 class="module-title"><span class="title-icon">λ</span> Programming — Functional Programming &amp; Composition</h2>
         <p>Port your shell script to a real language, FP-first.</p>
         <div class="hours-split"><span><strong>Learning</strong> ~4–7h</span><span><strong>Assignment</strong> ~8–13h</span><span><strong>Total</strong> ~12–20h</span></div>
 
@@ -124,10 +124,10 @@
         </ul>
 
         <h3>Assignment — port the cron script, FP-first</h3>
-        <p><strong>Goal:</strong> reimplement the M1 logic in a real language with FP discipline.</p>
+        <p><strong>Goal:</strong> reimplement the Module 1 logic in a real language with FP discipline.</p>
         <h4>Steps</h4>
         <ol>
-          <li>Port the M1 shell script to the language of your choice (Python / Go / TS / Elixir / …).</li>
+          <li>Port the Module 1 shell script to the language of your choice (Python / Go / TS / Elixir / …).</li>
           <li>FP discipline:
             <ul>
               <li>Pure functions for check logic (input → result, no I/O).</li>
@@ -140,7 +140,7 @@
           <li>Compose checks: <code>[Host] -&gt; [CheckResult]</code> via small composable functions.</li>
           <li>Linter + formatter wired (ruff / golangci-lint / eslint+prettier / …).</li>
           <li>Structured JSON logs (not <code>print</code>).</li>
-          <li>Still scheduled by cron from M1.</li>
+          <li>Still scheduled by cron from Module 1.</li>
         </ol>
         <h4>Acceptance</h4>
         <ul>
@@ -149,10 +149,10 @@
         </ul>
       </section>
 
-      <!-- M4 -->
+      <!-- Module 4 -->
       <section class="module" id="m4">
         <span class="module-tag">Module 4</span>
-        <h2 class="module-title">Continuous Integration (GitHub Actions)</h2>
+        <h2 class="module-title"><img class="title-icon" src="https://cdn.simpleicons.org/githubactions" alt=""> Continuous Integration (GitHub Actions)</h2>
         <div class="hours-split"><span><strong>Learning</strong> ~3–4h</span><span><strong>Assignment</strong> ~5–8h</span><span><strong>Total</strong> ~8–12h</span></div>
 
         <h3>Learning materials</h3>
@@ -162,8 +162,8 @@
           <li>Additional: <a href="https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services" target="_blank" rel="noopener">GitHub OIDC to AWS</a>, <a href="https://docs.github.com/en/code-security/code-scanning" target="_blank" rel="noopener">CodeQL docs</a>, <a href="https://github.com/aquasecurity/trivy-action" target="_blank" rel="noopener">Trivy Action</a></li>
         </ul>
 
-        <h3>Assignment — CI pipeline on the M3 repo</h3>
-        <p><strong>Goal:</strong> real CI on the M3 repo, not just one lint step.</p>
+        <h3>Assignment — CI pipeline on the Module 3 repo</h3>
+        <p><strong>Goal:</strong> real CI on the Module 3 repo, not just one lint step.</p>
         <h4>Steps</h4>
         <ol>
           <li>GitHub Actions workflow on PRs to <code>main</code>:
@@ -176,7 +176,7 @@
             </ul>
           </li>
           <li>Branch protection: all checks required before merge.</li>
-          <li>Configure GitHub → AWS via <strong>OIDC</strong> role (no static <code>AWS_*</code> secrets). You'll use this in M6/M7.</li>
+          <li>Configure GitHub → AWS via <strong>OIDC</strong> role (no static <code>AWS_*</code> secrets). You'll use this in Module 6/Module 7.</li>
         </ol>
         <h4>Acceptance</h4>
         <ul>
@@ -186,10 +186,10 @@
         </ul>
       </section>
 
-      <!-- M5 -->
+      <!-- Module 5 -->
       <section class="module" id="m5">
         <span class="module-tag">Module 5</span>
-        <h2 class="module-title">Containers (Docker)</h2>
+        <h2 class="module-title"><img class="title-icon" src="https://cdn.simpleicons.org/docker" alt=""> Containers (Docker)</h2>
         <div class="hours-split"><span><strong>Learning</strong> ~4–6h</span><span><strong>Assignment</strong> ~6–10h</span><span><strong>Total</strong> ~10–16h</span></div>
 
         <h3>Learning materials</h3>
@@ -202,10 +202,10 @@
         </ul>
 
         <h3>Assignment — containerize and compose</h3>
-        <p><strong>Goal:</strong> containerize the M3 app and run a two-container stack via Compose.</p>
+        <p><strong>Goal:</strong> containerize the Module 3 app and run a two-container stack via Compose.</p>
         <h4>Steps</h4>
         <ol>
-          <li>Multi-stage Dockerfile for the M3 app:
+          <li>Multi-stage Dockerfile for the Module 3 app:
             <ul>
               <li>Non-root <code>USER</code>.</li>
               <li><code>HEALTHCHECK</code> instruction.</li>
@@ -214,11 +214,11 @@
           </li>
           <li><code>compose.yaml</code> (Compose v2) with two services:
             <ul>
-              <li><code>app</code> — runs the M3 check loop continuously (internal scheduler OR cron inside the container — document your choice).</li>
+              <li><code>app</code> — runs the Module 3 check loop continuously (internal scheduler OR cron inside the container — document your choice).</li>
               <li><code>sidecar</code> — same image, monitors <code>app</code>, appends stats hourly to a <strong>named volume</strong> (not a host bind-mount).</li>
             </ul>
           </li>
-          <li>Image scanned with Trivy in CI (extend the M4 workflow). Fail on <code>HIGH</code>/<code>CRITICAL</code>.</li>
+          <li>Image scanned with Trivy in CI (extend the Module 4 workflow). Fail on <code>HIGH</code>/<code>CRITICAL</code>.</li>
         </ol>
         <h4>Acceptance</h4>
         <ul>
@@ -229,10 +229,10 @@
         </ul>
       </section>
 
-      <!-- M6 -->
+      <!-- Module 6 -->
       <section class="module" id="m6">
         <span class="module-tag">Module 6</span>
-        <h2 class="module-title">Cloud — AWS + Terraform/OpenTofu</h2>
+        <h2 class="module-title"><img class="title-icon wide" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt=""><img class="title-icon" src="https://cdn.simpleicons.org/terraform" alt=""> Cloud — AWS + Terraform/OpenTofu</h2>
         <p>Biggest module. Re-read the <a href="#free-tier">AWS Free Tier cheat sheet</a> first.</p>
         <div class="hours-split"><span><strong>Learning</strong> ~8–12h</span><span><strong>Assignments</strong> ~12–18h</span><span><strong>Total</strong> ~20–30h</span></div>
 
@@ -271,8 +271,8 @@
           <div class="track">
             <h4>Track A — Serverless <span class="tier always">always-free</span> · recommended</h4>
             <ul>
-              <li>Lambda (containerized — reuses M5 image) + API Gateway HTTP API + DynamoDB.</li>
-              <li>Deploy the M3 check logic as a Lambda triggered by an EventBridge schedule.</li>
+              <li>Lambda (containerized — reuses Module 5 image) + API Gateway HTTP API + DynamoDB.</li>
+              <li>Deploy the Module 3 check logic as a Lambda triggered by an EventBridge schedule.</li>
               <li><strong>Cost:</strong> $0 ongoing at assignment scale.</li>
             </ul>
           </div>
@@ -280,7 +280,7 @@
             <h4>Track B — Containers on Fargate Spot <span class="tier burn">credit-burn</span></h4>
             <ul>
               <li>ECS cluster + ECS service on Fargate Spot + ALB.</li>
-              <li>Uses the M5 image.</li>
+              <li>Uses the Module 5 image.</li>
               <li><strong>Cost:</strong> ~$20–40 of the $200 credit if left running. Document teardown.</li>
             </ul>
           </div>
@@ -288,7 +288,7 @@
             <h4>Track C — Containers on EC2 <span class="tier year">12-mo</span> · classic</h4>
             <ul>
               <li>ECS cluster + ECS service on EC2 (t2.micro/t3.micro, single instance, 750 h/mo first 12 mo) + ALB.</li>
-              <li>Uses the M5 image.</li>
+              <li>Uses the Module 5 image.</li>
               <li><strong>Cost:</strong> ALB ~$16/mo is <strong>not</strong> free — eats ~$100 of the $200 credit over 6 months, unless you tear down daily. EC2 is free only the first 12 months.</li>
             </ul>
           </div>
@@ -303,10 +303,10 @@
         </ul>
       </section>
 
-      <!-- M7 -->
+      <!-- Module 7 -->
       <section class="module" id="m7">
         <span class="module-tag">Module 7</span>
-        <h2 class="module-title">Continuous Delivery</h2>
+        <h2 class="module-title"><img class="title-icon" src="https://cdn.simpleicons.org/githubactions" alt=""> Continuous Delivery</h2>
         <div class="hours-split"><span><strong>Learning</strong> ~3–5h</span><span><strong>Assignment</strong> ~7–11h</span><span><strong>Total</strong> ~10–16h</span></div>
 
         <h3>Learning materials</h3>
@@ -318,19 +318,19 @@
         </ul>
 
         <h3>Assignment — CD pipeline</h3>
-        <p><strong>Goal:</strong> CD pipeline deploys the M6 app, separates release from deploy, and gates prod.</p>
+        <p><strong>Goal:</strong> CD pipeline deploys the Module 6 app, separates release from deploy, and gates prod.</p>
         <h4>Steps</h4>
         <ol>
           <li>GitHub Actions workflow on merge to <code>main</code>:
             <ul>
               <li>Build + push image (ECR for Tracks B/C) OR package Lambda (Track A).</li>
-              <li><code>terraform apply</code> via OIDC role (no static keys, from M4).</li>
+              <li><code>terraform apply</code> via OIDC role (no static keys, from Module 4).</li>
               <li>Deploy to <code>dev</code> automatically.</li>
             </ul>
           </li>
           <li>Separate <code>release</code> workflow on tag:
             <ul>
-              <li><code>semantic-release</code> reads conventional commits (M2).</li>
+              <li><code>semantic-release</code> reads conventional commits (Module 2).</li>
               <li>Generates <code>CHANGELOG.md</code>.</li>
               <li>Creates a GitHub Release with a version bump.</li>
               <li>Release ≠ deploy.</li>
@@ -351,14 +351,14 @@
       <!-- Final -->
       <section class="module" id="final">
         <span class="module-tag">Final Project</span>
-        <h2 class="module-title">Capstone — Status Page</h2>
-        <p>Assemble M1–M7 into a real, deployed, self-monitoring status page.</p>
-        <div class="hours-split"><span><strong>Learning</strong> ~0h (reuses M1–M7)</span><span><strong>Assignment</strong> ~30–50h</span><span><strong>Total</strong> ~30–50h</span></div>
+        <h2 class="module-title"><span class="title-icon">🏆</span> Capstone — Status Page</h2>
+        <p>Assemble Module 1–Module 7 into a real, deployed, self-monitoring status page.</p>
+        <div class="hours-split"><span><strong>Learning</strong> ~0h (reuses Module 1–Module 7)</span><span><strong>Assignment</strong> ~30–50h</span><span><strong>Total</strong> ~30–50h</span></div>
 
         <h3>Architecture (Track A reference; B/C map analogously)</h3>
         <ul>
           <li><strong>Frontend</strong>: SPA (any framework or vanilla JS), red/green dot per monitored host, last-check timestamp. Hosted on S3 + CloudFront (HTTPS, OAC, ACM cert).</li>
-          <li><strong>Backend</strong>: M3 check logic.
+          <li><strong>Backend</strong>: Module 3 check logic.
             <ul>
               <li>Track A: Lambda + API Gateway HTTP API.</li>
               <li>Track B: ECS Fargate Spot + ALB.</li>
@@ -376,7 +376,7 @@
               <li><code>&lt;name&gt;-statuspage-infra</code></li>
             </ul>
           </li>
-          <li><strong>Deploy</strong>: PR merge → dev auto; tag → semantic-release; prod manual approval (M7).</li>
+          <li><strong>Deploy</strong>: PR merge → dev auto; tag → semantic-release; prod manual approval (Module 7).</li>
         </ul>
 
         <h3>Acceptance</h3>
@@ -400,8 +400,8 @@
 
       <!-- Debugging -->
       <section class="module" id="debugging">
-        <span class="module-tag">Post-Final</span>
-        <h2 class="module-title">Debugging — live faults on your deployed system</h2>
+        <span class="module-tag">Final Checkout</span>
+        <h2 class="module-title"><span class="title-icon">🐞</span> Final Checkout · debugging — live faults on your deployed system</h2>
         <div class="hours-split"><span><strong>Learning</strong> ~3–5h</span><span><strong>Assignment</strong> ~7–15h</span><span><strong>Total</strong> ~10–20h</span></div>
 
         <div class="callout">
@@ -445,7 +445,7 @@
       <!-- Free Tier primer -->
       <section class="module" id="free-tier">
         <span class="module-tag">Reference</span>
-        <h2 class="module-title">AWS Free Tier 2025 — Cheat Sheet</h2>
+        <h2 class="module-title"><img class="title-icon wide" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt=""> AWS Free Tier 2025 — Cheat Sheet</h2>
         <p>New AWS accounts get <strong>$200 in credits, expiring after 6 months</strong> (or first-time account limits), <em>plus</em> always-free services. Read this before any AWS spend.</p>
 
         <table>
