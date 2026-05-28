@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DevOps Upskilling — Starter Pack</title>
+  <meta name="description" content="Self-serve DevOps upskilling program: Linux, Git, programming, CI, containers, cloud, CD, capstone, debugging.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+  <button class="menu-toggle" aria-label="Toggle navigation">☰ Menu</button>
+
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <h1>DevOps Upskilling</h1>
+      <div class="subtitle">Starter Pack · self-paced</div>
+      <nav aria-label="Modules">
+        <ol>
+          <li><a href="#intro">Overview</a></li>
+          <li><a href="#m1">M1 · Linux</a></li>
+          <li><a href="#m2">M2 · Git</a></li>
+          <li><a href="#m3">M3 · Programming (FP)</a></li>
+          <li><a href="#m4">M4 · Continuous Integration</a></li>
+          <li><a href="#m5">M5 · Containers</a></li>
+          <li><a href="#m6">M6 · Cloud (AWS + IaC)</a></li>
+          <li><a href="#m7">M7 · Continuous Delivery</a></li>
+          <li><a href="#final">Final · Status Page</a></li>
+          <li><a href="#debugging">Debugging (post-Final)</a></li>
+          <li><a href="#free-tier">AWS Free Tier 2025</a></li>
+        </ol>
+      </nav>
+    </aside>
+
+    <main>
+      <header class="hero" id="intro">
+        <h1>DevOps Upskilling — Starter Pack</h1>
+        <p>A self-paced program. Work through modules in order. Each module has learning materials, an assignment, and acceptance criteria.</p>
+        <p class="toc-meta">All materials are free and public.</p>
+      </header>
+
+      <!-- M1 -->
+      <section class="module" id="m1">
+        <span class="module-tag">Module 1</span>
+        <h2 class="module-title">Linux</h2>
+        <p>Terminal fluency and shell scripting.</p>
+        <div class="hours-split"><span><strong>Learning</strong> ~4–7h</span><span><strong>Assignment</strong> ~4–5h</span><span><strong>Total</strong> ~8–12h</span></div>
+
+        <h3>Learning materials</h3>
+        <ul>
+          <li>Essential: <a href="https://missing.csail.mit.edu/" target="_blank" rel="noopener">MIT Missing Semester</a></li>
+          <li>Essential: <a href="https://linuxjourney.com/" target="_blank" rel="noopener">Linux Journey</a></li>
+          <li>Hands-on: <a href="https://overthewire.org/wargames/bandit/" target="_blank" rel="noopener">OverTheWire Bandit</a> (levels 0–20 min)</li>
+          <li>Additional: <a href="https://linuxupskillchallenge.org/" target="_blank" rel="noopener">Linux Upskill Challenge</a></li>
+          <li>Reference: <a href="https://man7.org/" target="_blank" rel="noopener">man7.org</a>, <a href="https://tldr.sh/" target="_blank" rel="noopener">tldr.sh</a></li>
+        </ul>
+
+        <h3>Assignment — recurring host check</h3>
+        <p><strong>Goal:</strong> recurring host-availability check that emails results.</p>
+        <h4>Steps</h4>
+        <ol>
+          <li>Shell script checks HTTP status of <code>https://example.com</code> and <code>https://google.com</code>. Emits <code>OK</code>/<code>FAIL</code> per host with timestamp.</li>
+          <li>Email the result to your work inbox via any MTA / SMTP tool you choose. Credentials chmod-protected, never committed.</li>
+          <li>Schedule via cron: single-line crontab entry, runs hourly, survives reboot.</li>
+        </ol>
+        <h4>Acceptance</h4>
+        <ul>
+          <li>Script idempotent</li>
+          <li>Runs after reboot (verified)</li>
+          <li>Emails arrive (screenshot or saved <code>.eml</code>)</li>
+          <li>No secrets in repo</li>
+        </ul>
+      </section>
+
+      <!-- M2 -->
+      <section class="module" id="m2">
+        <span class="module-tag">Module 2</span>
+        <h2 class="module-title">Git</h2>
+        <p>Fundamentals, history rewriting, hooks, signing.</p>
+        <div class="hours-split"><span><strong>Learning</strong> ~3–5h</span><span><strong>Assignment</strong> ~3–5h</span><span><strong>Total</strong> ~6–10h</span></div>
+
+        <h3>Learning materials</h3>
+        <ul>
+          <li>Essential: <a href="https://learngitbranching.js.org/" target="_blank" rel="noopener">Learn Git Branching</a> (interactive)</li>
+          <li>Essential: <a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener">Pro Git book</a></li>
+          <li>Additional: <a href="https://www.conventionalcommits.org/" target="_blank" rel="noopener">Conventional Commits</a>, <code>git worktree</code>, <a href="https://docs.github.com/en/authentication/managing-commit-signature-verification" target="_blank" rel="noopener">GitHub Docs — signing commits with SSH</a></li>
+        </ul>
+
+        <h3>Assignment — rebase, hook, signing</h3>
+        <p><strong>Goal:</strong> practice history rewriting, hooks, and modern repo hygiene.</p>
+        <h4>Steps</h4>
+        <ol>
+          <li>Register a GitHub account with your 3PG email (skip if you have one).</li>
+          <li>Create public repo <code>devops-upskilling-&lt;first&gt;-&lt;last&gt;</code>. No collaborators required.</li>
+          <li>Push 5 dummy commits.</li>
+          <li>Use <code>git rebase --interactive</code>: squash the first three, drop the fourth, reword the fifth.</li>
+          <li>Push the rebased history without force-overwriting unrelated remote work — use <code>--force-with-lease</code>.</li>
+          <li>Add a <code>commit-msg</code> hook that appends the keyword <code>DevOps</code> to commit messages.</li>
+          <li>Configure SSH commit signing. Prove with <code>git log --show-signature</code>.</li>
+          <li>Enable branch protection on <code>main</code>: require PR, require signed commits.</li>
+        </ol>
+        <h4>Acceptance</h4>
+        <ul>
+          <li>Rebased history visible on remote</li>
+          <li>Hook installed (show file)</li>
+          <li><code>--show-signature</code> reports good signatures</li>
+          <li>Branch protection screenshot</li>
+        </ul>
+      </section>
+
+      <!-- M3 -->
+      <section class="module" id="m3">
+        <span class="module-tag">Module 3</span>
+        <h2 class="module-title">Programming — Functional Programming &amp; Composition</h2>
+        <p>Port your shell script to a real language, FP-first.</p>
+        <div class="hours-split"><span><strong>Learning</strong> ~4–7h</span><span><strong>Assignment</strong> ~8–13h</span><span><strong>Total</strong> ~12–20h</span></div>
+
+        <h3>Learning materials</h3>
+        <ul>
+          <li>Essential: <a href="https://github.com/MostlyAdequate/mostly-adequate-guide" target="_blank" rel="noopener">Mostly Adequate Guide to Functional Programming</a></li>
+          <li>Essential: <a href="https://www.manning.com/books/grokking-simplicity" target="_blank" rel="noopener">Grokking Simplicity (sample chapters)</a></li>
+          <li>Additional: <a href="https://refactoring.guru/refactoring" target="_blank" rel="noopener">refactoring.guru — Refactoring catalog</a>, language-idiomatic style guide (PEP 8 / Effective Go / TS Handbook)</li>
+          <li>Reference: <a href="https://www.freecodecamp.org/news/solid-principles-explained-in-plain-english/" target="_blank" rel="noopener">SOLID in Plain English</a> — read but don't force OOP</li>
+        </ul>
+
+        <h3>Assignment — port the cron script, FP-first</h3>
+        <p><strong>Goal:</strong> reimplement the M1 logic in a real language with FP discipline.</p>
+        <h4>Steps</h4>
+        <ol>
+          <li>Port the M1 shell script to the language of your choice (Python / Go / TS / Elixir / …).</li>
+          <li>FP discipline:
+            <ul>
+              <li>Pure functions for check logic (input → result, no I/O).</li>
+              <li>I/O (HTTP, email, time, env) at the edges only.</li>
+              <li>No shared mutable state.</li>
+              <li>Prefer <code>map</code>/<code>filter</code>/<code>reduce</code> (or language equivalent) over imperative loops where natural.</li>
+              <li>Immutable data structures.</li>
+            </ul>
+          </li>
+          <li>Compose checks: <code>[Host] -&gt; [CheckResult]</code> via small composable functions.</li>
+          <li>Linter + formatter wired (ruff / golangci-lint / eslint+prettier / …).</li>
+          <li>Structured JSON logs (not <code>print</code>).</li>
+          <li>Still scheduled by cron from M1.</li>
+        </ol>
+        <h4>Acceptance</h4>
+        <ul>
+          <li><code>lint</code> clean</li>
+          <li>README explains the pure/impure boundary and the composition</li>
+        </ul>
+      </section>
+
+      <!-- M4 -->
+      <section class="module" id="m4">
+        <span class="module-tag">Module 4</span>
+        <h2 class="module-title">Continuous Integration (GitHub Actions)</h2>
+        <div class="hours-split"><span><strong>Learning</strong> ~3–4h</span><span><strong>Assignment</strong> ~5–8h</span><span><strong>Total</strong> ~8–12h</span></div>
+
+        <h3>Learning materials</h3>
+        <ul>
+          <li>Essential: <a href="https://martinfowler.com/articles/continuousIntegration.html" target="_blank" rel="noopener">Martin Fowler — Continuous Integration</a></li>
+          <li>Essential: <a href="https://docs.github.com/actions" target="_blank" rel="noopener">GitHub Actions docs</a></li>
+          <li>Additional: <a href="https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services" target="_blank" rel="noopener">GitHub OIDC to AWS</a>, <a href="https://docs.github.com/en/code-security/code-scanning" target="_blank" rel="noopener">CodeQL docs</a>, <a href="https://github.com/aquasecurity/trivy-action" target="_blank" rel="noopener">Trivy Action</a></li>
+        </ul>
+
+        <h3>Assignment — CI pipeline on the M3 repo</h3>
+        <p><strong>Goal:</strong> real CI on the M3 repo, not just one lint step.</p>
+        <h4>Steps</h4>
+        <ol>
+          <li>GitHub Actions workflow on PRs to <code>main</code>:
+            <ul>
+              <li><code>super-linter</code> (or <code>megalinter</code>)</li>
+              <li>Language lint + tests with dependency cache (<code>actions/setup-*</code> + <code>cache</code>)</li>
+              <li>CodeQL SAST</li>
+              <li>Trivy repo scan (secrets, deps, IaC)</li>
+              <li>Matrix build across ≥2 runtime versions</li>
+            </ul>
+          </li>
+          <li>Branch protection: all checks required before merge.</li>
+          <li>Configure GitHub → AWS via <strong>OIDC</strong> role (no static <code>AWS_*</code> secrets). You'll use this in M6/M7.</li>
+        </ol>
+        <h4>Acceptance</h4>
+        <ul>
+          <li>Green pipeline on a sample PR</li>
+          <li>A failing PR (lint error) is blocked</li>
+          <li>OIDC role is assumable from the workflow</li>
+        </ul>
+      </section>
+
+      <!-- M5 -->
+      <section class="module" id="m5">
+        <span class="module-tag">Module 5</span>
+        <h2 class="module-title">Containers (Docker)</h2>
+        <div class="hours-split"><span><strong>Learning</strong> ~4–6h</span><span><strong>Assignment</strong> ~6–10h</span><span><strong>Total</strong> ~10–16h</span></div>
+
+        <h3>Learning materials</h3>
+        <ul>
+          <li>Essential: <a href="https://docs.docker.com/get-started/" target="_blank" rel="noopener">Docker — Get Started</a></li>
+          <li>Essential: <a href="https://docs.docker.com/reference/dockerfile/" target="_blank" rel="noopener">Dockerfile reference</a></li>
+          <li>Essential: <a href="https://docs.docker.com/compose/" target="_blank" rel="noopener">Docker Compose v2 docs</a></li>
+          <li>Additional: <a href="https://docs.docker.com/build/building/best-practices/" target="_blank" rel="noopener">Dockerfile best practices</a>, <a href="https://github.com/GoogleContainerTools/distroless" target="_blank" rel="noopener">Distroless images</a>, <a href="https://aquasecurity.github.io/trivy/" target="_blank" rel="noopener">Trivy image scanning</a></li>
+          <li>Reference: <a href="https://wizardzines.com/zines/containers/" target="_blank" rel="noopener">Julia Evans — Containers zine</a>, <a href="https://martinheinz.dev/blog/44" target="_blank" rel="noopener">Deep Dive into Docker Internals — Union FS</a></li>
+        </ul>
+
+        <h3>Assignment — containerize and compose</h3>
+        <p><strong>Goal:</strong> containerize the M3 app and run a two-container stack via Compose.</p>
+        <h4>Steps</h4>
+        <ol>
+          <li>Multi-stage Dockerfile for the M3 app:
+            <ul>
+              <li>Non-root <code>USER</code>.</li>
+              <li><code>HEALTHCHECK</code> instruction.</li>
+              <li>Final image ≤ 100 MB (budget).</li>
+            </ul>
+          </li>
+          <li><code>compose.yaml</code> (Compose v2) with two services:
+            <ul>
+              <li><code>app</code> — runs the M3 check loop continuously (internal scheduler OR cron inside the container — document your choice).</li>
+              <li><code>sidecar</code> — same image, monitors <code>app</code>, appends stats hourly to a <strong>named volume</strong> (not a host bind-mount).</li>
+            </ul>
+          </li>
+          <li>Image scanned with Trivy in CI (extend the M4 workflow). Fail on <code>HIGH</code>/<code>CRITICAL</code>.</li>
+        </ol>
+        <h4>Acceptance</h4>
+        <ul>
+          <li><code>docker compose up</code> runs cleanly</li>
+          <li><code>docker image ls</code> shows size ≤ 100 MB</li>
+          <li>Trivy gate visible in CI</li>
+          <li>Sidecar stats file populated in the volume</li>
+        </ul>
+      </section>
+
+      <!-- M6 -->
+      <section class="module" id="m6">
+        <span class="module-tag">Module 6</span>
+        <h2 class="module-title">Cloud — AWS + Terraform/OpenTofu</h2>
+        <p>Biggest module. Re-read the <a href="#free-tier">AWS Free Tier cheat sheet</a> first.</p>
+        <div class="hours-split"><span><strong>Learning</strong> ~8–12h</span><span><strong>Assignments</strong> ~12–18h</span><span><strong>Total</strong> ~20–30h</span></div>
+
+        <h3>Learning materials</h3>
+        <ul>
+          <li>Essential: <a href="https://aws.amazon.com/what-is-cloud-computing/" target="_blank" rel="noopener">AWS — What is Cloud Computing</a></li>
+          <li>Essential: <a href="https://skillbuilder.aws/" target="_blank" rel="noopener">AWS Skill Builder — Cloud Practitioner Essentials (free)</a></li>
+          <li>Essential: <a href="https://developer.hashicorp.com/terraform/tutorials/aws-get-started" target="_blank" rel="noopener">HashiCorp Learn — Terraform AWS</a></li>
+          <li>Essential: <a href="https://aws.amazon.com/free/" target="_blank" rel="noopener">AWS Free Tier page</a></li>
+          <li>Additional: <a href="https://opentofu.org/" target="_blank" rel="noopener">OpenTofu</a>, <a href="https://wellarchitectedlabs.com/" target="_blank" rel="noopener">AWS Well-Architected Labs</a>, <a href="https://blog.gruntwork.io/5-lessons-learned-from-writing-over-300-000-lines-of-infrastructure-code-36ba7fadeac1" target="_blank" rel="noopener">5 Lessons from 300k lines of IaC</a></li>
+        </ul>
+
+        <h3>Assignment 1 — AWS account &amp; static site</h3>
+        <p><strong>Goal:</strong> stand up a real public HTTPS site with no credit burn.</p>
+        <h4>Steps</h4>
+        <ol>
+          <li>Create an AWS free-tier account, enable MFA on root, create an IAM user for daily use.</li>
+          <li>Write an <code>index.html</code> (hello world / bio).</li>
+          <li>Private S3 bucket, with <strong>OAC</strong> (Origin Access Control) so only CloudFront can read.</li>
+          <li>CloudFront distribution → S3 origin.</li>
+          <li>HTTPS via the default <code>*.cloudfront.net</code> certificate (free). Bonus: own domain + ACM cert.</li>
+          <li>Set a billing alarm at $5 via CloudWatch + SNS email.</li>
+        </ol>
+        <h4>Acceptance</h4>
+        <ul>
+          <li>Site loads over HTTPS</li>
+          <li>S3 not directly public</li>
+          <li>Billing alarm armed</li>
+        </ul>
+        <p><strong>AWS Free Tier:</strong> <span class="tier always">always-free</span> at this scale (S3 5GB 12 mo, CloudFront 1TB always-free, ACM free).</p>
+
+        <h3>Assignment 2 — IaC: pick a track</h3>
+        <p>Pick <strong>one</strong> track. Document your choice and cost in the README. All tracks use Terraform/OpenTofu, remote state in S3 + DynamoDB lock table, and run <code>fmt</code> + <code>tflint</code> + <code>checkov</code> in CI.</p>
+
+        <div class="tracks">
+          <div class="track">
+            <h4>Track A — Serverless <span class="tier always">always-free</span> · recommended</h4>
+            <ul>
+              <li>Lambda (containerized — reuses M5 image) + API Gateway HTTP API + DynamoDB.</li>
+              <li>Deploy the M3 check logic as a Lambda triggered by an EventBridge schedule.</li>
+              <li><strong>Cost:</strong> $0 ongoing at assignment scale.</li>
+            </ul>
+          </div>
+          <div class="track">
+            <h4>Track B — Containers on Fargate Spot <span class="tier burn">credit-burn</span></h4>
+            <ul>
+              <li>ECS cluster + ECS service on Fargate Spot + ALB.</li>
+              <li>Uses the M5 image.</li>
+              <li><strong>Cost:</strong> ~$20–40 of the $200 credit if left running. Document teardown.</li>
+            </ul>
+          </div>
+          <div class="track">
+            <h4>Track C — Containers on EC2 <span class="tier year">12-mo</span> · classic</h4>
+            <ul>
+              <li>ECS cluster + ECS service on EC2 (t2.micro/t3.micro, single instance, 750 h/mo first 12 mo) + ALB.</li>
+              <li>Uses the M5 image.</li>
+              <li><strong>Cost:</strong> ALB ~$16/mo is <strong>not</strong> free — eats ~$100 of the $200 credit over 6 months, unless you tear down daily. EC2 is free only the first 12 months.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h4>Acceptance (all tracks)</h4>
+        <ul>
+          <li><code>terraform apply</code> runs cleanly from scratch</li>
+          <li>Remote state in S3, lock works (try two concurrent applies)</li>
+          <li>CI runs <code>fmt</code> / <code>tflint</code> / <code>checkov</code> green</li>
+          <li>README documents track + cost + teardown command</li>
+        </ul>
+      </section>
+
+      <!-- M7 -->
+      <section class="module" id="m7">
+        <span class="module-tag">Module 7</span>
+        <h2 class="module-title">Continuous Delivery</h2>
+        <div class="hours-split"><span><strong>Learning</strong> ~3–5h</span><span><strong>Assignment</strong> ~7–11h</span><span><strong>Total</strong> ~10–16h</span></div>
+
+        <h3>Learning materials</h3>
+        <ul>
+          <li>Essential: <a href="https://www.youtube.com/@ContinuousDelivery" target="_blank" rel="noopener">Dave Farley — Continuous Delivery YT</a></li>
+          <li>Essential: <a href="https://martinfowler.com/bliki/ContinuousDelivery.html" target="_blank" rel="noopener">Martin Fowler — Continuous Delivery</a></li>
+          <li>Essential: <a href="https://semantic-release.gitbook.io/" target="_blank" rel="noopener">semantic-release</a></li>
+          <li>Additional: <a href="https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment" target="_blank" rel="noopener">GitHub Environments + manual approvals</a>, <a href="https://martinfowler.com/articles/feature-toggles.html" target="_blank" rel="noopener">Feature Toggles (Martin Fowler)</a></li>
+        </ul>
+
+        <h3>Assignment — CD pipeline</h3>
+        <p><strong>Goal:</strong> CD pipeline deploys the M6 app, separates release from deploy, and gates prod.</p>
+        <h4>Steps</h4>
+        <ol>
+          <li>GitHub Actions workflow on merge to <code>main</code>:
+            <ul>
+              <li>Build + push image (ECR for Tracks B/C) OR package Lambda (Track A).</li>
+              <li><code>terraform apply</code> via OIDC role (no static keys, from M4).</li>
+              <li>Deploy to <code>dev</code> automatically.</li>
+            </ul>
+          </li>
+          <li>Separate <code>release</code> workflow on tag:
+            <ul>
+              <li><code>semantic-release</code> reads conventional commits (M2).</li>
+              <li>Generates <code>CHANGELOG.md</code>.</li>
+              <li>Creates a GitHub Release with a version bump.</li>
+              <li>Release ≠ deploy.</li>
+            </ul>
+          </li>
+          <li><code>prod</code> deploy: GitHub Environment, required reviewer (yourself), manual approval.</li>
+          <li>Rollback strategy documented in the README.</li>
+        </ol>
+        <h4>Acceptance</h4>
+        <ul>
+          <li>Merge to <code>main</code> → dev deployed automatically</li>
+          <li>Tag push → release + CHANGELOG</li>
+          <li>Prod blocked until approval</li>
+          <li>Documented rollback</li>
+        </ul>
+      </section>
+
+      <!-- Final -->
+      <section class="module" id="final">
+        <span class="module-tag">Final Project</span>
+        <h2 class="module-title">Capstone — Status Page</h2>
+        <p>Assemble M1–M7 into a real, deployed, self-monitoring status page.</p>
+        <div class="hours-split"><span><strong>Learning</strong> ~0h (reuses M1–M7)</span><span><strong>Assignment</strong> ~30–50h</span><span><strong>Total</strong> ~30–50h</span></div>
+
+        <h3>Architecture (Track A reference; B/C map analogously)</h3>
+        <ul>
+          <li><strong>Frontend</strong>: SPA (any framework or vanilla JS), red/green dot per monitored host, last-check timestamp. Hosted on S3 + CloudFront (HTTPS, OAC, ACM cert).</li>
+          <li><strong>Backend</strong>: M3 check logic.
+            <ul>
+              <li>Track A: Lambda + API Gateway HTTP API.</li>
+              <li>Track B: ECS Fargate Spot + ALB.</li>
+              <li>Track C: ECS on EC2 + ALB.</li>
+            </ul>
+          </li>
+          <li><strong>Cache</strong>: DynamoDB with TTL <span class="tier always">always-free</span> — replaces ElastiCache Redis (not free).</li>
+          <li><strong>Schedule</strong>: EventBridge cron triggers the check.</li>
+          <li><strong>Observability</strong>: CloudWatch Logs · 1 custom metric (e.g. <code>checks_failed_total</code>) · 1 alarm → SNS email.</li>
+          <li><strong>IaC</strong>: Terraform/OpenTofu, remote state S3 + DynamoDB, <code>fmt</code> + <code>tflint</code> + <code>checkov</code> in CI.</li>
+          <li><strong>CI/CD</strong>: GitHub Actions, OIDC to AWS, multi-repo:
+            <ul>
+              <li><code>&lt;name&gt;-statuspage-frontend</code></li>
+              <li><code>&lt;name&gt;-statuspage-backend</code></li>
+              <li><code>&lt;name&gt;-statuspage-infra</code></li>
+            </ul>
+          </li>
+          <li><strong>Deploy</strong>: PR merge → dev auto; tag → semantic-release; prod manual approval (M7).</li>
+        </ul>
+
+        <h3>Acceptance</h3>
+        <ul>
+          <li>Public HTTPS URL serves the SPA</li>
+          <li>SPA reads from the backend API, shows red/green per host</li>
+          <li>Backend writes/reads cache from DynamoDB</li>
+          <li>CloudWatch alarm fires on simulated failure → email arrives</li>
+          <li>All 3 repos green CI, OIDC deploys, no static AWS keys</li>
+          <li>Teardown: <code>terraform destroy</code> cleans up all 3 stacks</li>
+          <li>Each repo's README documents track + cost estimate</li>
+        </ul>
+
+        <h3>Bonus</h3>
+        <ul>
+          <li>OpenTelemetry traces → CloudWatch (or Honeycomb free tier)</li>
+          <li>Status history page (last 24h from DynamoDB)</li>
+          <li>Multi-region health check</li>
+        </ul>
+      </section>
+
+      <!-- Debugging -->
+      <section class="module" id="debugging">
+        <span class="module-tag">Post-Final</span>
+        <h2 class="module-title">Debugging — live faults on your deployed system</h2>
+        <div class="hours-split"><span><strong>Learning</strong> ~3–5h</span><span><strong>Assignment</strong> ~7–15h</span><span><strong>Total</strong> ~10–20h</span></div>
+
+        <div class="callout">
+          <h4>How this module works</h4>
+          <p>A program admin / instructor will introduce faults into your own deployed stack: app code, Terraform config, or AWS resource settings. Faults are <em>not</em> announced. You detect, diagnose, and fix.</p>
+        </div>
+
+        <h3>Learning materials</h3>
+        <ul>
+          <li>Essential: <a href="https://jvns.ca/" target="_blank" rel="noopener">Julia Evans — debugging blog &amp; zines</a></li>
+          <li>Essential: <a href="https://sre.google/sre-book/postmortem-culture/" target="_blank" rel="noopener">Google SRE Book — Postmortem Culture</a></li>
+          <li>Essential: <a href="https://www.brendangregg.com/linuxperf.html" target="_blank" rel="noopener">Brendan Gregg — Linux Performance Tools</a></li>
+          <li>Additional: <a href="https://developer.chrome.com/docs/devtools/" target="_blank" rel="noopener">Chrome DevTools docs</a>, <code>strace</code> / <code>ltrace</code> man pages, <a href="https://danielmiessler.com/p/tcpdump/" target="_blank" rel="noopener">tcpdump tutorial</a>, <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html" target="_blank" rel="noopener">CloudWatch Logs Insights query syntax</a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events.html" target="_blank" rel="noopener">CloudTrail event history</a></li>
+          <li>Reference: <a href="https://queue.acm.org/detail.cfm?id=3068754" target="_blank" rel="noopener">The Debugging Mindset (ACM Queue)</a></li>
+        </ul>
+
+        <h3>Assignment — find &amp; fix the planted faults</h3>
+        <h4>Fault categories (admin picks specifics)</h4>
+        <ul>
+          <li><strong>Application bug</strong> — logic / concurrency / data-handling in backend code</li>
+          <li><strong>Infrastructure bug</strong> — Terraform config drift / wrong IAM policy / wrong env var / wrong security group</li>
+          <li><strong>AWS setup bug</strong> — manual console change outside IaC (e.g. modified Lambda alias, edited DynamoDB TTL, revoked role permission)</li>
+        </ul>
+
+        <h4>Steps per fault</h4>
+        <ol>
+          <li><strong>Detect</strong> — CloudWatch alarm, broken UI, failing API call, etc.</li>
+          <li><strong>Reproduce</strong> — minimal repro path documented.</li>
+          <li><strong>Diagnose</strong> — logs / metrics / CloudTrail / <code>terraform plan</code> drift / <code>strace</code> / browser devtools as appropriate.</li>
+          <li><strong>Fix</strong> via a PR with a regression test, or an alarm that would have caught it earlier.</li>
+          <li><strong>Blameless post-mortem</strong> markdown: timeline · impact · root cause · contributing factors · what went well · action items.</li>
+        </ol>
+        <h4>Acceptance</h4>
+        <ul>
+          <li>3 PRs (one per fault), each linking repro + RCA + regression check</li>
+          <li>3 post-mortem markdown docs, blameless language</li>
+          <li>A drift-detection alarm OR <code>terraform plan</code> CI check added to prevent the AWS-setup class of bug</li>
+        </ul>
+      </section>
+
+      <!-- Free Tier primer -->
+      <section class="module" id="free-tier">
+        <span class="module-tag">Reference</span>
+        <h2 class="module-title">AWS Free Tier 2025 — Cheat Sheet</h2>
+        <p>New AWS accounts get <strong>$200 in credits, expiring after 6 months</strong> (or first-time account limits), <em>plus</em> always-free services. Read this before any AWS spend.</p>
+
+        <table>
+          <thead>
+            <tr><th>Category</th><th>Service / limit</th><th>Tier</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Compute</td><td>Lambda — 1M req/mo + 400k GB-s</td><td><span class="tier always">always-free</span></td></tr>
+            <tr><td>API</td><td>API Gateway HTTP API — 1M req/mo (12 mo)</td><td><span class="tier year">12-mo</span></td></tr>
+            <tr><td>Storage</td><td>S3 — 5GB Standard, 20k GET, 2k PUT</td><td><span class="tier year">12-mo</span></td></tr>
+            <tr><td>CDN</td><td>CloudFront — 1TB egress/mo, 10M req/mo</td><td><span class="tier always">always-free</span></td></tr>
+            <tr><td>TLS</td><td>ACM public certs</td><td><span class="tier always">always-free</span></td></tr>
+            <tr><td>Database</td><td>DynamoDB — 25GB, 25 RCU, 25 WCU</td><td><span class="tier always">always-free</span></td></tr>
+            <tr><td>Compute (VM)</td><td>EC2 t2.micro / t3.micro — 750h/mo</td><td><span class="tier year">12-mo</span></td></tr>
+            <tr><td>Messaging</td><td>SNS — 1M pub, SQS — 1M req</td><td><span class="tier always">always-free</span></td></tr>
+            <tr><td>Observability</td><td>CloudWatch — 10 metrics, 10 alarms, 5GB logs</td><td><span class="tier always">always-free</span></td></tr>
+            <tr><td>Containers</td><td>ECS control plane (Fargate/EC2 launch types not free)</td><td><span class="tier always">always-free</span></td></tr>
+            <tr><td>Load Balancer</td><td>ALB / NLB — <strong>not free, ~$16+/mo</strong></td><td><span class="tier none">never free</span></td></tr>
+            <tr><td>Cache</td><td>ElastiCache — <strong>not free</strong>. Use DynamoDB with TTL instead.</td><td><span class="tier none">never free</span></td></tr>
+            <tr><td>Kubernetes</td><td>EKS control plane ~$73/mo</td><td><span class="tier none">never free</span></td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout warn">
+          <h4>Set a billing alarm before you build anything</h4>
+          <p>Create a CloudWatch alarm at $5 (or whatever budget you accept) wired to an SNS topic that emails you. Do this on day 1.</p>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <p>DevOps Upskilling — Starter Pack. Self-paced, free materials only. Hosted on GitHub Pages.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-hcl.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-yaml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-docker.min.js"></script>
+
+  <script>
+    // Scroll-spy: highlight active nav link
+    const sections = document.querySelectorAll("section.module, header.hero");
+    const links = document.querySelectorAll(".sidebar nav a");
+    const linkById = {};
+    links.forEach(a => { linkById[a.getAttribute("href").slice(1)] = a; });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const id = entry.target.id;
+        const link = linkById[id];
+        if (!link) return;
+        if (entry.isIntersecting) {
+          links.forEach(l => l.classList.remove("active"));
+          link.classList.add("active");
+        }
+      });
+    }, { rootMargin: "-40% 0px -55% 0px", threshold: 0 });
+
+    sections.forEach(s => observer.observe(s));
+
+    // Mobile menu
+    const toggle = document.querySelector(".menu-toggle");
+    const sidebar = document.getElementById("sidebar");
+    toggle.addEventListener("click", () => sidebar.classList.toggle("open"));
+    sidebar.addEventListener("click", (e) => {
+      if (e.target.tagName === "A") sidebar.classList.remove("open");
+    });
+  </script>
+</body>
+</html>
